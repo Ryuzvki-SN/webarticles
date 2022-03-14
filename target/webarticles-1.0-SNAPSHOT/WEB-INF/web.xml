@@ -3,13 +3,21 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+    <!-- Servlet controleur de Struts -->
     <servlet>
-    <servlet-name>webarticles</servlet-name>
-    <servlet-class>istia.st.articles.web.WebArticles</servlet-class>
+        <servlet-name>webarticles</servlet-name>
+        <servlet-class>istia.st.articles.web.struts.MainServlet</servlet-class>
+
         <init-param>
             <param-name>springConfigFileName</param-name>
             <param-value>spring-config-firebird.xml</param-value>
         </init-param>
+
+        <init-param>
+            <param-name>config</param-name>
+            <param-value>/WEB-INF/struts-config.xml</param-value>
+        </init-param>
+
         <init-param>
             <param-name>urlMain</param-name>
             <param-value>/main</param-value>
@@ -39,14 +47,15 @@
             <param-value>/vues/debug.jsp</param-value>
         </init-param>
     </servlet>
+    <!-- Mapping des url avec la servlet -->
+    <servlet-mapping>
+        <servlet-name>webarticles</servlet-name>
+        <url-pattern>*.do</url-pattern>
+    </servlet-mapping>
+
+    <!-- page d'accueil de l'application -->
     <welcome-file-list>
         <welcome-file>/vues/index.jsp</welcome-file>
     </welcome-file-list>
-    <servlet-mapping>
-        <servlet-name>webarticles</servlet-name>
-        <url-pattern>/main</url-pattern>
-    </servlet-mapping>
-
-
 
 </web-app>

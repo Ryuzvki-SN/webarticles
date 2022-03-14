@@ -12,7 +12,7 @@
             <td><c:out value="${achat.qte}"/></td>
             <td><c:out value="${achat.article.prix}"/></td>
             <td><c:out value="${achat.total}"/></td>
-            <td><a href="<c:out value="?action=retirerachat&id=${achat.article.id}"/>">Retirer</a></td>
+            <td><a href="<c:out value="retirerachat.do?id=${achat.article.id}"/>">Retirer</a></td>
         </tr>
     </c:forEach>
 </table>

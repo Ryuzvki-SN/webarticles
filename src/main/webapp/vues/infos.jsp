@@ -14,7 +14,7 @@
     </tr>
 </table>
 <p>
-<form method="post" action="?action=achat&id=<c:out value="${article.id}"/>"/>
+<form method="post" action="achat.do?id=<c:out value="${article.id}"/>"/>
 <table>
     <tr>
         <td><input type="submit" value="Acheter"></td>

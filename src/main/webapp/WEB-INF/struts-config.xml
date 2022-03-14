@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+        "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+    <action-mappings type="org.apache.struts.action.ActionMapping">
+        <action path="/main" type="istia.st.articles.web.struts.ListeArticlesAction">
+            <forward name="afficherListeArticles" path="/vues/liste.jsp"/>
+            <forward name="afficherErreurs" path="/vues/erreurs.jsp"/>
+        </action>
+        <action path="/liste" type="istia.st.articles.web.struts.ListeArticlesAction">
+            <forward name="afficherListeArticles" path="/vues/liste.jsp"/>
+            <forward name="afficherErreurs" path="/vues/erreurs.jsp"/>
+        </action>
+        <action path="/infos" type="istia.st.articles.web.struts.InfosArticleAction">
+            <forward name="afficherInfosArticle" path="/vues/infos.jsp"/>
+            <forward name="afficherErreurs" path="/vues/erreurs.jsp"/>
+        </action>
+        <action
+                path="/achat" type="istia.st.articles.web.struts.AchatArticleAction">
+            <forward name="afficherInfosArticle" path="/vues/infos.jsp"/>
+            <forward name="afficherListeArticles" path="/main.do"/>
+        </action>
+        <action
+                path="/panier" type="istia.st.articles.web.struts.VoirPanierAction">
+            <forward name="afficherPanier" path="/vues/panier.jsp"/>
+            <forward name="afficherPanierVide" path="/vues/paniervide.jsp"/>
+        </action>
+        <action
+                path="/retirerachat" type="istia.st.articles.web.struts.RetirerAchatAction">
+            <forward name="afficherPanier" path="/panier.do"/>
+            <forward name="afficherErreurs" path="/vues/erreurs.jsp"/>
+        </action>
+        <action
+                path="/validerpanier" type="istia.st.articles.web.struts.ValiderPanierAction">
+            <forward name="afficherListeArticles" path="/main.do"/>
+            <forward name="afficherErreurs" path="/vues/erreurs.jsp"/>
+        </action>
+    </action-mappings>
+    <message-resources parameter="ApplicationResources" null="false" />
+
+</struts-config>

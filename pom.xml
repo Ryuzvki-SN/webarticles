@@ -16,6 +16,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <junit.version>5.8.1</junit.version>
         <firebird-version>4.0.5.java8</firebird-version>
+        <struts-convention>2.5.29</struts-convention>
     </properties>
 
     <dependencies>
@@ -101,11 +102,16 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.22</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.firebirdsql.jdbc/jaybird -->
+        <!-- https://mvnrepository.com/artifact/struts/struts -->
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.22</version>
+            <groupId>struts</groupId>
+            <artifactId>struts</artifactId>
+            <version>1.2.9</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.struts</groupId>
+            <artifactId>struts2-convention-plugin</artifactId>
+            <version>${struts-convention}</version>
         </dependency>
 
     </dependencies>
