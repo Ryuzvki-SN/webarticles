@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="istia.st.articles.web.spring" />
+    <!-- gestionnaire de vues -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/vues/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+    <!-- les gestionnaires d'actions = contrôleurs -->
+    <bean id="ListController" class="istia.st.articles.web.spring.ListController">
+        <property name="config" ref="config"/>
+    </bean>
+    <bean id="InfosController"
+          class="istia.st.articles.web.spring.InfosController">
+        <property name="config" ref="config"/>
+    </bean>
+    <bean id="AchatController"
+          class="istia.st.articles.web.spring.AchatController">
+        <property name="config" ref="config"/>
+    </bean>
+    <bean id="VoirPanierController"
+          class="istia.st.articles.web.spring.VoirPanierController">
+        <property name="config" ref="config"/>
+    </bean>
+    <bean id="RetirerAchatController"
+          class="istia.st.articles.web.spring.RetirerAchatController">
+        <property name="config" ref="config"/>
+    </bean>
+    <bean id="ValiderPanierController"
+          class="istia.st.articles.web.spring.ValiderPanierController">
+        <property name="config" ref="config"/>
+    </bean>
+    <!-- le mapping de l'application-->
+    <bean id="urlMapping"
+          class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="/liste.do">ListController</prop>
+                <prop key="/main.do">ListController</prop>
+                <prop key="/infos.do">InfosController</prop>
+                <prop key="/achat.do">AchatController</prop>
+                <prop key="/panier.do">VoirPanierController</prop>
+                <prop key="/retirerachat.do">RetirerAchatController</prop>
+                <prop key="/validerpanier.do">ValiderPanierController</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!-- le fichier des messages -->
+    <bean id="messageSource"
+          class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="messages"/>
+    </bean>
+
+
+</beans>

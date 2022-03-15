@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans SYSTEM "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+    <!-- la classe d'accès aux données -->
+    <bean id="articlesDao" class="istia.st.articles.dao.ArticlesDaoSqlMap">
+        <constructor-arg index="0" value="sqlmap-config-firebird.xml"/>
+    </bean>
+    <!-- la classe métier -->
+    <bean id="articlesDomain" class="istia.st.articles.domain.AchatsArticles">
+        <constructor-arg index="0" ref="articlesDao"/>
+    </bean>
+    <!-- la configuration de l'application web-->
+    <bean id="config" class="istia.st.articles.web.spring.Config" init-method="init">
+        <property name="articlesDomain" ref="articlesDomain"/>
+    </bean>
+</beans>
